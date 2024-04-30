@@ -1,0 +1,14 @@
+<div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+  <button type="button" class="close" (click)="confirmDelete($event, contactInput)">
+    <span class="badge close btn btn-danger ">&times;</span>
+  </button>
+  <div (click)="openContactDetails(contactInput.id)">
+    <div class="card-header">
+      <h1>{{contactInput.lastName}}, {{contactInput.firstName}}</h1>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Phone: {{contactInput.telNum}}</p>
+          <p class="card-text">Email: {{contactInput.email}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1 class="display-3">All Contacts</h1>
+  <button mat-flat-button color="primary" (click)="addNewContact()">Add new contact</button>
+  <hr class="my-4">
+  <input class="form-control" type="text" [(ngModel)]="searchContact" placeholder="Search">
+  <div class="row" *ngIf="(allContacts | filter: searchContact).length > 0; else noResults">
+    <div class="col-4" *ngFor="let contact of allContacts | filter: searchContact">
+      <app-contact-card [contactInput]="contact" (onOpenContact)="getContactId($event)"></app-contact-card>
+    </div>
+  </div>
+</div>
+
+<ng-template #noResults>
+  <p>No results found for "{{searchContact}}".</p>
+</ng-template>

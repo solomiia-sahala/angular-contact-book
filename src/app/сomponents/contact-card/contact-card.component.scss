@@ -1,0 +1,10 @@
+.card {
+  cursor: pointer;
+
+  h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+

@@ -1,0 +1,44 @@
+<div class="jumbotron" *ngIf="formGroup">
+  <button mat-flat-button color="primary" (click)="returnToContacts()">Back to all contacts</button>
+  <form class="example-form" (submit)="onSubmit($event)">
+  <div class="row user-info">
+    <div class="col-md-5">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="Enter first name" [formControl]="$any(formGroup).controls.firstName">
+        <mat-error *ngIf="formGroup.controls.firstName.invalid">{{validationMessages.getInputErrorMessage()}}</mat-error>
+        <mat-icon matSuffix>perm_identity</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-md-5">
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Enter last name" [formControl]="$any(formGroup).controls.lastName">
+        <mat-error *ngIf="formGroup.controls.lastName.invalid">{{validationMessages.getInputErrorMessage()}}</mat-error>
+        <mat-icon matSuffix>perm_identity</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-md-5">
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="Enter phone numner" [formControl]="$any(formGroup).controls.telNum">
+        <mat-error *ngIf="formGroup.controls.telNum.invalid">{{validationMessages.getTelErrorMessage()}}</mat-error>
+        <mat-icon matSuffix>phone_enabled</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-md-5">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="user@example.com" [formControl]="$any(formGroup).controls.email">
+        <mat-error *ngIf="formGroup.controls.email.invalid">{{validationMessages.getEmailErrorMessage()}}</mat-error>
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <button class="btn btn-primary btn-lg" [disabled]="updateContactBtnEnable()">UPDATE CONTACT</button>
+    </div>
+  </div>
+</form>
+</div>
